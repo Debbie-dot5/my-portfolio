@@ -11,8 +11,6 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 
 const projects = [
   {
