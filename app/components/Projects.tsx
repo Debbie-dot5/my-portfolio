@@ -2,13 +2,80 @@
 import { projects } from "../data/projects"
 import Image from "next/image";
 import { ArrowUpRight, Sparkles } from "lucide-react";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gsap from "gsap";
 
+gsap.registerPlugin(ScrollTrigger) 
 
 export default function Projects() {
+  useGSAP(() => {
+ 
+
+  gsap.fromTo(
+    ".projects-title",
+    { opacity: 0, x: 400,  duration: 3 , ease: "power4.out" },
+    {
+      opacity: 1,
+      x: 0,
+      duration: 3,
+      ease: "power4.out",
+      scrollTrigger: {
+        trigger: ".projects-section",
+        start: "top 80%"
+      }
+    }
+  )
+
+ 
+// first trial
+
+  // gsap.to(".project-card",{
+  //   scrollTrigger: {
+  //     trigger: ".projects-card",
+  //     start: "top",
+  //     toggleActions: "restart none none reverse", 
+  //     scrub: 1, 
+  //   },
+
+  //   x: 400,
+  //   duration: 3,
+  //   stagger: 0.2,
+  // })
+
+
+const cards = document.querySelectorAll(".project-card");
+const xValues = [-100, 100, -150, 150, -200, 200]; 
+
+cards.forEach((card, i) => {
+  gsap.fromTo(
+    card,
+    { opacity: 0, x: xValues[i] || 0 },
+    {
+      opacity: 1,
+      x: 0,
+      duration: 2,
+      ease: "power4.out",
+      scrollTrigger: {
+        trigger: card,
+        start: "top 90%",
+        toggleActions: "restart none none reverse",
+        scrub: 1,
+      },
+    }
+  );
+});
+
+
+
+  }
+  ,[])
+
+
     return (
-          <section className="mb-32 relative">
+          <section className="products-section mb-32 relative">
           <div className="mb-12">
-            <h2 className="text-2xl font-light text-gray-900 relative inline-block group">
+            <h2 className="projects-title text-2xl font-light text-gray-900 relative inline-block group">
               Selected Work
               <span
                 className="absolute bottom-0 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-500 ease-out"
@@ -20,14 +87,14 @@ export default function Projects() {
             <Sparkles size={14} />
           </div>
 
-          <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="projects-grid grid md:grid-cols-1 lg:grid-cols-2 gap-8">
             {projects.map((project) => (
               <a
                 key={project.title}
                 href={project.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block"
+                className="group block project-card"
               >
                 <div className="relative w-full h-48 mb-4">
                   <Image

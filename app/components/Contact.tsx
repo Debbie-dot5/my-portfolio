@@ -1,15 +1,46 @@
-        import {
-        Github,
-        Linkedin,
-        ArrowUpRight,
-        Sparkles,
-        Twitter,
-        } from "lucide-react";
+import {
+Github,
+Linkedin,
+ArrowUpRight,
+Sparkles,
+Twitter,
+} from "lucide-react";
+
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+
+
+gsap.registerPlugin(ScrollTrigger) 
+
 
 
 export default function Contact() {
+
+
+
+  useGSAP(() => {
+    gsap.fromTo(
+      ".contact-section",
+      { opacity: 0, y: 100 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1.5,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: ".contact-section",
+          start: "top 100%",
+          //end: "bottom top",
+          //markers: true,
+          toggleActions: "restart none none reverse",
+        },
+      }
+    );
+  }, []);
  return (
-        <section className="relative">
+        <section className="contact-section relative ">
           {/* Sparkles around contact */}
           <div className="absolute -top-8 left-8 text-gray-400">
             <Sparkles size={16} />
@@ -33,7 +64,7 @@ export default function Contact() {
               <Sparkles size={12} />
             </div>
 
-            <div className="relative z-10">
+            <div className="relative z-10 ">
               <h2 className="text-3xl font-light text-white mb-4">
                 Let&#39;s work together
               </h2>

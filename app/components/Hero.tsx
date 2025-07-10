@@ -2,15 +2,17 @@ import Image from "next/image";
 import { Download, Sparkles } from "lucide-react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+
+gsap.registerPlugin(ScrollTrigger) 
+
 
 export default function Hero() {
 
 useGSAP(() => {
 
-  // "fromTo" tween (define both start and end values)
-//gsap.fromTo('.selector', { fromVars }, { toVars });
-// special properties (duration, ease, etc.) go in toVars
-
+ 
    gsap.fromTo(
       ".hero-title",
       { opacity: 0, x: -200 }, // Start from left (x: -100)
@@ -22,6 +24,9 @@ useGSAP(() => {
        
       }
     );
+
+
+   
 
 
     gsap.fromTo(
@@ -112,10 +117,10 @@ useGSAP(() => {
       <a
         href="/My CV.pdf"
         download
-        className="hero-cta flex items-center gap-2 inline-flex bg-[#C9C3DE] text-gray-900 px-6 py-3 rounded-full hover:bg-gray-50 transition-colors cursor-pointer"
+        className="hero-cta flex items-center gap-2 inline-flex bg-[#C9C3DE] text-gray-900 px-6 py-3 rounded-full hover:bg-gray-50 transition-colors cursor-pointer "
       >
-        Download CV
-        <Download className="w-4 h-4 mr-2" />
+       <span className="hidden md:flex" >Download CV</span>
+        <Download className="w-4 h-4 mr-2 items-center" />
       </a>
       <div>•</div>
       <div>Based in Nigeria, Kwara State</div>
