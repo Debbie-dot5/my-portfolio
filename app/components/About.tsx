@@ -61,7 +61,7 @@ useGSAP(() => {
             <div className="about-me border-r-2 border-gray-200 pr-4">
               <h2 className="text-2xl font-light text-gray-900 mb-6">About</h2>
               <p className=" text-gray-600 leading-relaxed mb-6">
-                I&#39;m a full-stack developer with 1+ years of experience
+                I&#39;m a Frontend developer with 1+ years of experience
                 building web applications. I enjoy working with modern
                 technologies and creating solutions that are both functional and
                 beautiful.

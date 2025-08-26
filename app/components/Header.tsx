@@ -1,11 +1,18 @@
 import { Github, Linkedin, Mail, Twitter, } from "lucide-react";
-
+import Image from "next/image";
 
 export default function Header() {
     return (
-         <header className="mb-20">
+         <header className="mb-8">
           <div className="flex justify-between items-center">
-            <div className="text-lg font-bold text-gray-600">Umoh Deborah</div>
+            <div className="text-lg font-bold text-gray-600">
+             <Image
+              src="/logo.png"
+              alt="Umoh Deborah"
+              width={120}
+              height={20}
+                   />
+            </div>
             <div className="flex gap-6">
               <a
                 href="https://github.com/Debbie-dot5"
