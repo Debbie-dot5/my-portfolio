@@ -115,7 +115,7 @@ useGSAP(() => {
 
     <div className="flex items-center gap-4 text-sm text-gray-500">
       <a
-        href="/My CV.pdf"
+        href="/umoh-deborah.pdf"
         download
         className="hero-cta flex items-center gap-2 inline-flex bg-[#C9C3DE] text-gray-900 px-6 py-3 rounded-full hover:bg-gray-50 transition-colors cursor-pointer "
       >
