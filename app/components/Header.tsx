@@ -9,8 +9,9 @@ export default function Header() {
              <Image
               src="/logo.png"
               alt="Umoh Deborah"
-              width={120}
+              width={100}
               height={20}
+             
                    />
             </div>
             <div className="flex gap-6">

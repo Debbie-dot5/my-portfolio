@@ -72,7 +72,7 @@ useGSAP(() => {
 
 
   return (
-    <section className="mb-32 relative">
+    <section className="mb-32  relative">
           <div className="absolute top-10 left-20 text-gray-300">
             <Sparkles size={16} />
           </div>
@@ -127,20 +127,25 @@ useGSAP(() => {
     </div>
   </div>
 
-  <div className="flex justify-center md:justify-end">
+  <div className="flex justify-center md:justify-end ">
     <div className="hero-image w-64 h-64 relative rounded-full overflow-hidden shadow-lg">
       <Image
-        src="/my-photo.jpg"
+        src="/my-image.jpg"
         alt="Umoh Deborah"
-        fill
-        className="object-cover"
+       width={300}
+       height={50}
+      className="object-cover"
+        
         priority
       />
     </div>
   </div>
 </div>
 
-        </section>
+
+  
+
+        </section> 
 
   );
 }

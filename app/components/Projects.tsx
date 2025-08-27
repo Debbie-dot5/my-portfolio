@@ -45,28 +45,26 @@ export default function Projects() {
 
 
 const cards = document.querySelectorAll(".project-card");
-const xValues = [-100, 100, -150, 150, -200, 200]; 
+const xValues = [100, 100, 150, 150, 200, 200]; 
 
 cards.forEach((card, i) => {
   gsap.fromTo(
     card,
-    { opacity: 0, x: xValues[i] || 0 },
+    { opacity: 0, y: xValues[i] || 0 },
     {
       opacity: 1,
-      x: 0,
+      y: 0,
       duration: 2,
       ease: "power4.out",
       scrollTrigger: {
         trigger: card,
         start: "top 90%",
-        toggleActions: "restart none none reverse",
+        toggleActions: "restart none none pause",
         scrub: 1,
       },
     }
   );
 });
-
-
 
   }
   ,[])
@@ -75,7 +73,7 @@ cards.forEach((card, i) => {
     return (
           <section className="products-section mb-32 relative">
           <div className="mb-12">
-            <h2 className="projects-title text-2xl font-light text-gray-900 relative inline-block group">
+            <h2 className="projects-title text-xl font-medium text-gray-900 relative inline-block group">
               Selected Work
               <span
                 className="absolute bottom-0 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-500 ease-out"
